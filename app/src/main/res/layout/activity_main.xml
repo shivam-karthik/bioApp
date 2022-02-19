@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="bio"
+            type="com.example.bioapp.data.Bio" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8BC34A"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/image_description"
+            app:srcCompat="@drawable/ic_launcher_foreground"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{bio.name}"
+            style="@style/nameStyle" />
+
+        <EditText
+            android:id="@+id/enter_hobbies"
+            style="@style/generalStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/enter_hobbies"
+            android:minHeight="48dp"
+            android:text="@string/hobby_hint_text"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <Button
+            android:id="@+id/doneButton"
+            style="@style/generalStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="addHobbies"
+            android:text="@string/done_text" />
+
+        <TextView
+            android:id="@+id/hobbies_text"
+            style="@style/generalStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{bio.hobbies}"
+            android:visibility="invisible" />
+
+        <ScrollView
+            style="@style/nameStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/generalStyle"
+                android:lineSpacingMultiplier="1.4"
+                android:text="@string/my_bio" />
+        </ScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
